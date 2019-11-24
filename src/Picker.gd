@@ -11,7 +11,6 @@ func _ready():
 	pass # Replace with function body.
 
 func _input(event):
-	print(button)
 	if event.is_action_pressed(button):
 		is_pressed = true
 		is_collecting = true
