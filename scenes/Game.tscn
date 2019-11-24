@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://prefabs/Road.tscn" type="PackedScene" id=1]
+
+[node name="game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+
+[node name="MusicBar" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200, 570 )
+scale = Vector2( 1.5, 1.5 )
