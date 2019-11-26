@@ -6,8 +6,7 @@ signal note_collected
 signal note_missed
 
 var length
-var picker = null
-var speed
+var is_in_area
 
 func _ready():
 	add_listeners()
@@ -31,7 +30,6 @@ func set_pos(line:int, pos_y:int, pos_mod:float, length_scale:float):
 
 func collect():
 	emit_signal("note_collected")
-	picker.is_collecting = false
 	hide()
 
 func add_listeners():
@@ -39,10 +37,19 @@ func add_listeners():
 	connect("area_entered", self, "_on_Note_area_entered")
 	connect("area_exited", self, "_on_Note_area_exited")
 
+func _on_Picker_pressed(picker):
+	if is_area:
+		collect()
+
+func _on_Picker_stopped(picker):
+	pass
+
 func _on_Note_area_entered(area):
 	if area.is_in_group("picker"):
-		picker = area
+		is_in_area = true
 
 func _on_Note_area_exited(area):
 	if area.is_in_group("picker"):
 		emit_signal("note_missed", self)
+		is_in_area = false
+		set_physics_process(false)

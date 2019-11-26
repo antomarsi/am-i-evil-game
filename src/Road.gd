@@ -1,5 +1,7 @@
 extends Node2D
 
+signal bar_ended
+
 onready var bars_node = $BarsNode
 
 var bar_scene = preload("res://prefabs/Bar.tscn")
@@ -30,8 +32,11 @@ func add_bars():
 		add_bar()
 
 func add_bar():
+	var bar_data = get_bar_data(current_bar_index)
+	if bar_data == null:
+		emit_signal("bar_ended")
+		return
 	var bar = bar_scene.instance()
-	bar.bar_data = get_bar_data(current_bar_index)
 	bar.connect("bar_exited", self, "on_bar_removed")
 	bar.position = Vector2(current_location.x, current_location.y)
 	bar.note_scale = note_scale
@@ -42,6 +47,8 @@ func add_bar():
 	current_bar_index += 1
 	
 func get_bar_data(index):
+	if tracks_data[0].bars.length > index:
+		return null
 	var key_1 = tracks_data[0].bars[index]
 	var key_2 = tracks_data[1].bars[index]
 	return [key_1, key_2]
