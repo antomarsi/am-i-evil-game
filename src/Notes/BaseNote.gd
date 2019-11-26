@@ -4,15 +4,25 @@ export(int, 1, 5) var line
 
 var pos
 var pos_mod = 40
+var length
+var length_scale
 var is_colliding = false
 var is_collected = false
 var picker = null
+var speed
 
 func _ready():
+	_on_ready()
+
+func _on_ready():
 	set_pos(self.pos)
+	add_listeners()
 
 func _process(delta):
-	collect()
+	_on_process(delta)
+	
+func _on_process(delta):
+	pass
 
 func set_pos(pos):
 	var x
@@ -29,15 +39,17 @@ func set_pos(pos):
 			x = 1.5
 		6:
 			x = 2.5
-	self.position = Vector2(x*pos_mod, pos)
+	self.position = Vector2(x*pos_mod, -(pos/length_scale))
 
 func collect():
-	if not is_collected:
-		if is_colliding and picker and picker.is_collecting:
-			is_collected = true
-			picker.is_collecting = false
-			hide()
+	is_collected = true
+	picker.is_collecting = false
+	hide()
 
+func add_listeners():
+	add_to_group("note")
+	connect("area_entered", self, "_on_Note_area_entered")
+	connect("area_exited", self, "_on_Note_area_exited")
 
 func _on_Note_area_entered(area):
 	if area.is_in_group("picker"):

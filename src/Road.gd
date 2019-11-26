@@ -32,6 +32,7 @@ func add_bar():
 	bar.connect("bar_exited", self, "on_bar_removed")
 	bar.position = Vector2(current_location.x, current_location.y)
 	bar.note_scale = note_scale
+	bar.speed = speed
 	bars.append(bar)
 	bars_node.add_child(bar)
 	current_location += Vector2(0, -bar_lenght_in_m)

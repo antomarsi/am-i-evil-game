@@ -8,6 +8,7 @@
 [node name="game" type="Node2D"]
 script = ExtResource( 4 )
 map_file = "res://assets/Maps/basic_metal_8.mboy"
+DELAY = 1.0
 MUSIC = ExtResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
