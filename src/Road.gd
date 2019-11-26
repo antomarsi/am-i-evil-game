@@ -10,17 +10,20 @@ var speed = 80
 var note_scale
 var current_bar_index = 0
 var tracks_data
+var keys = [
+	$Keys/Key1,
+	$Keys/Key2,
+	$Keys/Key3,
+	$Keys/Key4,
+	$Keys/Key5,
+	$Keys/Key6
+]
+
+func _ready():
+	set_physics_process(false)
 
 func _process(delta):
 	bars_node.position.y += speed*delta
-
-func setup(game:GameMusicManager):
-	speed = game.speed
-	bar_lenght_in_m = game.bar_lenght_in_m
-	current_location = Vector2(0, -(bar_lenght_in_m + (game.start_pos_in_sec*speed)))
-	note_scale = game.note_scale
-	tracks_data = game.map.tracks
-	add_bars()
 
 func add_bars():
 	for i in range(4):
@@ -50,3 +53,12 @@ func remove_bar(bar):
 func on_bar_removed(bar):
 	add_bar()
 	self.remove_bar(bar)
+
+
+func _on_GameManager_params_setted(game:GameMusicManager):
+	speed = game.speed
+	bar_lenght_in_m = game.bar_lenght_in_m
+	current_location = Vector2(0, -(bar_lenght_in_m + (game.start_pos_in_sec*speed)))
+	note_scale = game.note_scale
+	tracks_data = game.map.tracks
+	add_bars()

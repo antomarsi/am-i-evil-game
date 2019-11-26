@@ -1,31 +1,19 @@
 extends Area2D
 
-export(int, 1, 5) var line
+class_name BaseNote
 
-var pos
-var pos_mod = 40
+signal note_collected
+signal note_missed
+
 var length
-var length_scale
-var is_colliding = false
-var is_collected = false
 var picker = null
 var speed
 
 func _ready():
-	_on_ready()
-
-func _on_ready():
-	set_pos(self.pos)
 	add_listeners()
 
-func _process(delta):
-	_on_process(delta)
-	
-func _on_process(delta):
-	pass
-
-func set_pos(pos):
-	var x
+func set_pos(line:int, pos_y:int, pos_mod:float, length_scale:float):
+	var x : float
 	match line:
 		1:
 			x = -2.5
@@ -39,10 +27,10 @@ func set_pos(pos):
 			x = 1.5
 		6:
 			x = 2.5
-	self.position = Vector2(x*pos_mod, -(pos/length_scale))
+	self.position = Vector2(x*pos_mod, -(pos_y/length_scale))
 
 func collect():
-	is_collected = true
+	emit_signal("note_collected")
 	picker.is_collecting = false
 	hide()
 
@@ -53,10 +41,8 @@ func add_listeners():
 
 func _on_Note_area_entered(area):
 	if area.is_in_group("picker"):
-		is_colliding = true
 		picker = area
-
 
 func _on_Note_area_exited(area):
 	if area.is_in_group("picker"):
-		is_colliding = false
+		emit_signal("note_missed", self)

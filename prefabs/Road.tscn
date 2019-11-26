@@ -18,7 +18,7 @@ __meta__ = {
 [node name="Keys" type="Position2D" parent="."]
 z_index = 1
 
-[node name="Key" parent="Keys" instance=ExtResource( 4 )]
+[node name="Key1" parent="Keys" instance=ExtResource( 4 )]
 position = Vector2( -100, 0 )
 button = "key_1"
 

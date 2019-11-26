@@ -6,7 +6,7 @@ var short_note_scn = preload("res://prefabs/ShortNote.tscn")
 var long_note_scn = preload("res://prefabs/LongNote.tscn")
 var bar_data
 var speed
-
+var pos_mod = 40
 var note_scale = 8
 
 func _ready():
@@ -21,16 +21,14 @@ func add_notes():
 		line += 1
 
 func add_note(line, data):
-	var note
+	var note : BaseNote
 	if int(data.len) > 100:
 		note = long_note_scn.instance()
 	else:
 		note = short_note_scn.instance()
-	note.line = line
+	note.set_pos(line, int(data.pos), pos_mod, note_scale)
 	note.speed = speed
 	note.length = int(data.len)
-	note.length_scale = note_scale
-	note.pos = int(data.pos)
 	add_child(note)
 
 func _on_VisibilityNotifier2D_screen_exited():
