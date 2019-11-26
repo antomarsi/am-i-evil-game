@@ -5,6 +5,7 @@ var current_length_in_m = 0
 var length_in_m
 var speed
 var hold_started = false
+var picker
 
 func set_pos(line:int, pos_y:int, pos_mod:float, length_scale:float):
 	.set_pos(line, pos_y, pos_mod, length_scale)
@@ -15,9 +16,9 @@ func set_line(length, length_scale, speed):
 	$Beam.set_point_position(1, Vector2(0, -length_in_m))
 
 func _on_Picker_pressed(picker):
-	if is_area:
+	if is_in_area:
 		hold_started = true
-		picker_global_pos = picker.global_position
+		picker = picker
 		collect()
 
 func _on_Picker_stopped(picker):
@@ -35,7 +36,7 @@ func _on_Note_area_exited(area):
 		set_physics_process(false)
 
 func _process(delta):
-		if is_area and hold_started:
+		if is_in_area and hold_started:
 			length_in_m -= speed * delta
 			if length_in_m <= 0:
 				collect()

@@ -13,7 +13,7 @@ onready var road_node = $Road
 export(AudioStreamOGGVorbis) var MUSIC
 
 var tempo
-var bar_lenght_in_m
+var bar_length_in_m
 var quarter_time_in_sec
 var speed
 var note_scale
@@ -31,10 +31,10 @@ func _ready():
 	
 func set_params():
 	tempo = int(map.tempo)
-	bar_lenght_in_m = 200
+	bar_length_in_m = 200
 	quarter_time_in_sec = 60/(float(tempo))
-	speed = bar_lenght_in_m/float(4*quarter_time_in_sec)
-	note_scale = bar_lenght_in_m/25
+	speed = bar_length_in_m/float(4*quarter_time_in_sec)
+	note_scale = bar_length_in_m/25
 	start_pos_in_sec = (map.start_pos/25*quarter_time_in_sec) + DELAY
 	emit_signal("params_setted", self)
 	

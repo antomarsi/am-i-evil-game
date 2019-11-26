@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "GameMusicManager",
 "language": "GDScript",
 "path": "res://src/MusicManager.gd"
+}, {
+"base": "Area2D",
+"class": "Picker",
+"language": "GDScript",
+"path": "res://src/Picker.gd"
 } ]
 _global_script_class_icons={
 "BaseNote": "",
-"GameMusicManager": ""
+"GameMusicManager": "",
+"Picker": ""
 }
 
 [application]

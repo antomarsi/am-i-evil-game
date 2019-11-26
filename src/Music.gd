@@ -12,5 +12,5 @@ func _on_Delay_timeout():
 
 func _on_GameManager_params_setted(game: GameMusicManager):
 	player.stream = game.music	
-	delay_timer.wait_time = (game.bar_lenght_in_m/game.speed) + game.start_pos_in_sec
+	delay_timer.wait_time = (game.bar_length_in_m/game.speed) + game.start_pos_in_sec
 	delay_timer.start()

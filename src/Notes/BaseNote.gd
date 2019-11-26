@@ -33,12 +33,11 @@ func collect():
 	hide()
 
 func add_listeners():
-	add_to_group("note")
 	connect("area_entered", self, "_on_Note_area_entered")
 	connect("area_exited", self, "_on_Note_area_exited")
 
 func _on_Picker_pressed(picker):
-	if is_area:
+	if is_in_area:
 		collect()
 
 func _on_Picker_stopped(picker):

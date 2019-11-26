@@ -6,7 +6,7 @@ onready var bars_node = $BarsNode
 
 var bar_scene = preload("res://prefabs/Bar.tscn")
 var bars = []
-var bar_lenght_in_m = 200
+var bar_length_in_m = 200
 var current_location = Vector2(0, -200)
 var speed = 80
 var note_scale
@@ -43,11 +43,11 @@ func add_bar():
 	bar.speed = speed
 	bars.append(bar)
 	bars_node.add_child(bar)
-	current_location += Vector2(0, -bar_lenght_in_m)
+	current_location += Vector2(0, -bar_length_in_m)
 	current_bar_index += 1
 	
 func get_bar_data(index):
-	if tracks_data[0].bars.length > index:
+	if tracks_data[0].bars.size() > index:
 		return null
 	var key_1 = tracks_data[0].bars[index]
 	var key_2 = tracks_data[1].bars[index]
@@ -64,8 +64,8 @@ func on_bar_removed(bar):
 
 func _on_GameManager_params_setted(game:GameMusicManager):
 	speed = game.speed
-	bar_lenght_in_m = game.bar_lenght_in_m
-	current_location = Vector2(0, -(bar_lenght_in_m + (game.start_pos_in_sec*speed)))
+	bar_length_in_m = game.bar_length_in_m
+	current_location = Vector2(0, -(bar_length_in_m + (game.start_pos_in_sec*speed)))
 	note_scale = game.note_scale
 	tracks_data = game.map.tracks
 	add_bars()
