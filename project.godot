@@ -36,6 +36,15 @@ config/name="Am I Evil"
 run/main_scene="res://scenes/Game.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/size/test_width=640
+window/size/test_height=360
+window/stretch/mode="2d"
+window/stretch/aspect="keep_width"
+
 [input]
 
 key_1={
@@ -71,4 +80,5 @@ key_6={
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"

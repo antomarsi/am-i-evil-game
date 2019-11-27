@@ -12,13 +12,14 @@ var speed = 80
 var note_scale
 var current_bar_index = 0
 var tracks_data
-var keys = [
+var pos_mod = 32
+
+onready var keys = [
 	$Keys/Key1,
 	$Keys/Key2,
 	$Keys/Key3,
 	$Keys/Key4,
-	$Keys/Key5,
-	$Keys/Key6
+	$Keys/Key5
 ]
 
 func _ready():
@@ -41,13 +42,16 @@ func add_bar():
 	bar.position = Vector2(current_location.x, current_location.y)
 	bar.note_scale = note_scale
 	bar.speed = speed
+	bar.pos_mod = pos_mod
+	bar.set_bar_size(pos_mod*2.5, bar_length_in_m)
+	bar.add_notes(bar_data, keys)
 	bars.append(bar)
 	bars_node.add_child(bar)
 	current_location += Vector2(0, -bar_length_in_m)
 	current_bar_index += 1
 	
 func get_bar_data(index):
-	if tracks_data[0].bars.size() > index:
+	if not tracks_data[0].bars[index]:
 		return null
 	var key_1 = tracks_data[0].bars[index]
 	var key_2 = tracks_data[1].bars[index]

@@ -15,8 +15,8 @@ anchor_mode = 0
 current = true
 
 [node name="Road" parent="." instance=ExtResource( 1 )]
-position = Vector2( 200, 570 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 289.518, 700.697 )
+scale = Vector2( 3, 3 )
 
 [node name="MusicNode" type="Node" parent="."]
 script = ExtResource( 3 )
