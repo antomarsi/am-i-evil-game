@@ -1,5 +1,7 @@
 extends Node2D
 
+signal params_setted
+
 class_name GameMusicManager
 
 export (String, FILE) var map_file = null
@@ -11,7 +13,7 @@ onready var road_node = $Road
 export(AudioStreamOGGVorbis) var MUSIC
 
 var tempo
-var bar_lenght_in_m
+var bar_length_in_m
 var quarter_time_in_sec
 var speed
 var note_scale
@@ -23,17 +25,18 @@ func _ready():
 	map = load_map()
 	var music_path = map.audio.download_link
 	music = load(music_path)
-	calc_params()
-	music_node.setup(self)
-	road_node.setup(self)
+	set_params()
+	$MusicNode.set_physics_process(true)
+	$Road.set_physics_process(true)
 	
-func calc_params():
+func set_params():
 	tempo = int(map.tempo)
-	bar_lenght_in_m = 200
+	bar_length_in_m = 200
 	quarter_time_in_sec = 60/(float(tempo))
-	speed = bar_lenght_in_m/float(4*quarter_time_in_sec)
-	note_scale = bar_lenght_in_m/25
+	speed = bar_length_in_m/float(4*quarter_time_in_sec)
+	note_scale = bar_length_in_m/25
 	start_pos_in_sec = (map.start_pos/25*quarter_time_in_sec) + DELAY
+	emit_signal("params_setted", self)
 	
 func load_map():
 	var file = File.new()

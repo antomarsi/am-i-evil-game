@@ -1,62 +1,52 @@
 extends Area2D
 
-export(int, 1, 5) var line
+class_name BaseNote
 
-var pos
-var pos_mod = 40
-var length
-var length_scale
-var is_colliding = false
-var is_collected = false
-var picker = null
-var speed
+signal note_collected
+signal note_missed
+
+var is_in_area
 
 func _ready():
-	_on_ready()
-
-func _on_ready():
-	set_pos(self.pos)
 	add_listeners()
 
-func _process(delta):
-	_on_process(delta)
-	
-func _on_process(delta):
-	pass
-
-func set_pos(pos):
-	var x
+func set_pos(line:int, pos_y:int, pos_mod:float, length_scale:float):
+	var x : float
 	match line:
 		1:
-			x = -2.5
+			x = -2
 		2:
-			x = -1.5
+			x = -1
 		3:
-			x = -0.5
+			x = 0
 		4:
-			x = 0.5
+			x = 1
 		5:
-			x = 1.5
-		6:
-			x = 2.5
-	self.position = Vector2(x*pos_mod, -(pos/length_scale))
+			x = 2
+	self.position = Vector2(x*pos_mod, -(pos_y/length_scale))
+	$Sprite.frame = line-1
 
 func collect():
-	is_collected = true
-	picker.is_collecting = false
+	emit_signal("note_collected")
 	hide()
 
 func add_listeners():
-	add_to_group("note")
 	connect("area_entered", self, "_on_Note_area_entered")
 	connect("area_exited", self, "_on_Note_area_exited")
 
+func _on_Picker_pressed(picker):
+	if is_in_area and picker.note == self:
+		collect()
+		picker.note = null
+
+func _on_Picker_stopped(picker):
+	pass
+
 func _on_Note_area_entered(area):
 	if area.is_in_group("picker"):
-		is_colliding = true
-		picker = area
-
+		is_in_area = true
 
 func _on_Note_area_exited(area):
 	if area.is_in_group("picker"):
-		is_colliding = false
+		emit_signal("note_missed", self)
+		is_in_area = false

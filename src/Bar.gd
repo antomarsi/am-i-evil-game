@@ -2,36 +2,41 @@ extends Node2D
 
 signal bar_exited
 
-var short_note_scn = preload("res://prefabs/ShortNote.tscn")
+var short_note_scn = preload("res://prefabs/Note.tscn")
 var long_note_scn = preload("res://prefabs/LongNote.tscn")
-var bar_data
 var speed
-
+var pos_mod
 var note_scale = 8
 
-func _ready():
-	add_notes()
+func set_bar_size(width, height):
+	$Line2D.set_point_position(0, Vector2(-width, 0))
+	$Line2D.set_point_position(1, Vector2(width, 0))
+	$VisibilityNotifier2D.rect = Rect2(Vector2(-width, -height), Vector2(width, height))
 
-func add_notes():
+func add_notes(bar_data, keys:Array):
 	var line = 1
 	for line_data in bar_data:
 		var note_datas = line_data.notes
 		for note_data in note_datas:
-			add_note(line, note_data)
+			var note = create_note(line, note_data, keys)
+			add_child(note)
 		line += 1
 
-func add_note(line, data):
+func create_note(line:int, data, keys):
+	var key = keys[line-1]
 	var note
 	if int(data.len) > 100:
 		note = long_note_scn.instance()
+		note.set_line(int(data.len), note_scale, speed)
+		note.connect("note_holding", key, "_play_particle", [false])
+		note.connect("note_collected", key, "_stop_particles")
 	else:
 		note = short_note_scn.instance()
-	note.line = line
-	note.speed = speed
-	note.length = int(data.len)
-	note.length_scale = note_scale
-	note.pos = int(data.pos)
-	add_child(note)
+		note.connect("note_collected", key, "_play_particle")
+	key.connect("picker_collecting", note, "_on_Picker_pressed")
+	key.connect("picker_stopped", note, "_on_Picker_stopped")
+	note.set_pos(line, int(data.pos), pos_mod, note_scale)
+	return note
 
 func _on_VisibilityNotifier2D_screen_exited():
 	emit_signal("bar_exited", self)
