@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://prefabs/Road.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/music/Basic_Metal_8.ogg" type="AudioStream" id=2]
 [ext_resource path="res://src/Music.gd" type="Script" id=3]
 [ext_resource path="res://src/MusicManager.gd" type="Script" id=4]
+[ext_resource path="res://prefabs/Interface.tscn" type="PackedScene" id=5]
 
-[node name="GameManager" type="Node2D"]
+[node name="GameManager" type="Node"]
 script = ExtResource( 4 )
 map_file = "res://assets/Maps/basic_metal_8.mboy"
 MUSIC = ExtResource( 2 )
+
+[node name="Interface" parent="." instance=ExtResource( 5 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -25,6 +28,6 @@ script = ExtResource( 3 )
 
 [node name="Delay" type="Timer" parent="MusicNode"]
 one_shot = true
-[connection signal="params_setted" from="." to="MusicNode" method="_on_GameManager_params_setted"]
 [connection signal="params_setted" from="." to="Road" method="_on_GameManager_params_setted"]
+[connection signal="params_setted" from="." to="MusicNode" method="_on_GameManager_params_setted"]
 [connection signal="timeout" from="MusicNode/Delay" to="MusicNode" method="_on_Delay_timeout"]

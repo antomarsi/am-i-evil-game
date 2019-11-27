@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/interface/bar/fill.png" type="Texture" id=1]
+[ext_resource path="res://assets/interface/bar/bg.png" type="Texture" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+anchor_bottom = 1.0
+margin_left = 0.268257
+margin_top = 720.132
+margin_right = 720.268
+margin_bottom = 53.1324
+rect_rotation = -90.0
+value = 90.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 1 )
+nine_patch_stretch = true
+stretch_margin_left = 16
+stretch_margin_right = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -144.0
+margin_right = 53.0
+color = Color( 0.984314, 0.054902, 0.00784314, 0.184314 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_right = 53.0
+margin_bottom = 72.0
+color = Color( 0.00784314, 0.482353, 0.984314, 0.184314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
