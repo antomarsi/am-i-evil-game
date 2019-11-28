@@ -9,40 +9,29 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Area2D",
-"class": "BaseNote",
-"language": "GDScript",
-"path": "res://src/Notes/BaseNote.gd"
-}, {
 "base": "Node",
 "class": "GameMusicManager",
 "language": "GDScript",
 "path": "res://src/MusicManager.gd"
-}, {
-"base": "Area2D",
-"class": "Picker",
-"language": "GDScript",
-"path": "res://src/Picker.gd"
 } ]
 _global_script_class_icons={
-"BaseNote": "",
-"GameMusicManager": "",
-"Picker": ""
+"GameMusicManager": ""
 }
 
 [application]
 
 config/name="Am I Evil"
 run/main_scene="res://scenes/Game.tscn"
+boot_splash/fullsize=false
 config/icon="res://icon.png"
 
 [display]
 
-window/size/width=1280
-window/size/height=720
-window/size/test_width=640
-window/size/test_height=360
-window/stretch/mode="2d"
+window/size/width=384
+window/size/height=216
+window/size/test_width=768
+window/size/test_height=432
+window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
 [input]
@@ -80,5 +69,4 @@ key_6={
 
 [rendering]
 
-quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"

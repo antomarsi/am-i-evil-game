@@ -3,7 +3,7 @@
     "text": "You sit on the couch backstage noodling your guitar, letting your fingers glide between the strings and relishing the little vibrations you could feel through them."
   },
   "002": {
-    "name": "???",
+    "name": "Artemis",
     "expression": "neutral",
     "text": "Where’d you come up with that tune?"
   },
@@ -50,7 +50,7 @@
   },
   "014": {
     "name": "Anon",
-    "text": "Move your damnhair, you look like a faggot."
+    "text": "Move your damn hair, you look like a faggot."
   },
   "015": {
     "name": "Artemis",
@@ -74,14 +74,14 @@
   },
   "020": {
     "name": "Anon",
-    "text": "Same fucking difference."
+    "text": "Same fucking thing."
   },
   "021": {
     "text": "Arty slaps your picking hand."
   },
   "022": {
     "name": "Artemis",
-    "text": "Tartarus is ten times more hardcore than normal prison."
+    "text": "Tartarus is ten times more hardcore than a normal prison."
   },
   "023": {
     "name": "Anon",
@@ -103,12 +103,12 @@
     "text": "You and Arty look at each other before looking back at the bass player laying on a box."
   },
   "028": {
-    "name": "",
-    "text": "Eris, during the show tonight keep your swamp-ass ass away from me."
+    "name": "Anon",
+    "text": "Eris, during the show tonight keep your swamp-ass away from me."
   },
   "029": {
-    "name": "",
-    "text": "Yeah, and then get some cotton underwear.”"
+    "name": "Artemis",
+    "text": "Yeah, and then get some cotton underwear."
   },
   "030": {
     "name": "Eris",
@@ -122,7 +122,7 @@
   },
   "033": {
     "name": "Sombra",
-    "text": "Do NOT go in there.”"
+    "text": "Do NOT go in there."
   },
   "034": {
     "text": "The smell hits you all at once, causing you and Artemis to recoil."
@@ -160,7 +160,7 @@
   },
   "043": {
     "name": "Sombra",
-    "text": "Eat my asshole, ya wimp.”"
+    "text": "Eat my asshole, ya wimp."
   },
   "044": {
     "name": "Artemis",
@@ -176,17 +176,17 @@
   },
   "047": {
     "name": "Artemis",
-    "text": "Deniiiiiied.”"
+    "text": "Deniiiiiied."
   },
   "048": {
-    "text": "Artemis makes a blimp shape with his hand and adds sound effects as he makes it crash and burn into the couch. ”No survivors.”"
+    "text": "Artemis makes a blimp shape with his hand and adds sound effects as he makes it crash and burn into the couch. \"No survivors.\""
   },
   "049": {
     "text": "The door on the other side of the green room opens up and your manager/lead vocalist heads in."
   },
   "050": {
     "name": "Chrysalis",
-    "text": "Okay so you guys aren’t going to believe this bullshit.”"
+    "text": "Okay so you guys aren’t going to believe this bullshit."
   },
   "051": {
     "text": "Artemis groans and Sombra throws his hands up in the air."
@@ -208,7 +208,7 @@
   },
   "056": {
     "name": "Anon",
-    "text": "-Two-?"
+    "text": "Two?"
   },
   "057": {
     "name": "Chrysalis",
@@ -302,11 +302,11 @@
   },
   "081": {
     "name": "Everyone",
-    "text": "Hhhhhhhell with it”"
+    "text": "Hhhhhhhell with it"
   },
   "082": {
     "name": "Anon",
-    "text": "Hell with it, let’s go play.”"
+    "text": "Hell with it, let’s go play."
   },
   "083": {
     "text": "The band springs into motion then. Gone was the banter, replaced with instead a unified effort to get on stage."
@@ -317,7 +317,7 @@
   },
   "085": {
     "name": "Anon",
-    "text": "Over by the chicken wings, where is my tie?”"
+    "text": "Over by the chicken wings, where is my tie?"
   },
   "086": {
     "name": "Eris",
@@ -325,7 +325,7 @@
   },
   "087": {
     "name": "Anon",
-    "text": "Makes me look cooler.”"
+    "text": "Makes me look cooler."
   },
   "088": {
     "text": "You tie your tie, clip your cufflinks, and pull down the special mask you had made; a green cover all with a question mark in the middle to go with your name."
@@ -345,7 +345,7 @@
     "text": "What do we –always- open with, Arty?"
   },
   "093": {
-    "text": "The five of you silently shuffle out onto the dark stage at the venue, a club in the middle of nowhere. Big enough to attract a crowd yet small enough that the manager could stiff you and not catch hell. Turnout was, as per normal, weirdly higher than expected. A couple hundred people stood in the pit sipping drinks and chatting amongst themselves. It had been like that for a while now, people attracting to your music through word of mouth even though barely any radio would play you. Some chalked it up to the cults of personality your bandmates had or the kingdom finally growing past the “lovey dovey cutesy” pop crap that had held it for centuries, others to dark forces warping the minds of the impressionable."
+    "text": "The five of you silently shuffle out onto the dark stage at the venue, a club in the middle of nowhere. Big enough to attract a crowd yet small enough that the manager could stiff you and not catch hell. Turnout was, as per normal, weirdly higher than expected. A couple hundred people stood in the pit sipping drinks and chatting amongst themselves. It had been like that for a while now, people attracting to your music through word of mouth even though barely any radio would play you. Some chalked it up to the cults of personality your bandmates had or the kingdom finally growing past the \"lovey dovey cutesy\" pop crap that had held it for centuries, others to dark forces warping the minds of the impressionable."
   },
   "094": {
     "text": "You personally just knew you could carry a beat."
@@ -358,6 +358,6 @@
   },
   "097": {
     "name": "Chrysalis",
-    "text": "This here is a song about why bad people do bad things.”"
+    "text": "This is a song about why bad people do bad things."
   }
 }

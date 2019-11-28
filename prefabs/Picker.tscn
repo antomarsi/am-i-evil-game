@@ -8,18 +8,18 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 7 )
 
-[sub_resource type="Gradient" id=10]
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0.859259, 1 )
 colors = PoolColorArray( 1, 1, 1, 0.737255, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=11]
-gradient = SubResource( 10 )
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 
-[sub_resource type="Curve" id=12]
+[sub_resource type="Curve" id=4]
 _data = [ Vector2( 0, 1 ), 0.0, -0.490098, 0, 0, Vector2( 1, 0.3328 ), -1.80514, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=13]
-curve = SubResource( 12 )
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
 
 [sub_resource type="ParticlesMaterial" id=6]
 emission_shape = 2
@@ -31,8 +31,8 @@ gravity = Vector3( 0, 980, 0 )
 initial_velocity = 175.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale_curve = SubResource( 13 )
-color_ramp = SubResource( 11 )
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
 
 [sub_resource type="Gradient" id=7]
 colors = PoolColorArray( 1, 1, 1, 0.462745, 1, 1, 1, 0 )
@@ -71,7 +71,6 @@ z_index = 5
 texture = ExtResource( 1 )
 vframes = 5
 hframes = 2
-region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="Sparks" type="Particles2D" parent="."]
 z_index = 7

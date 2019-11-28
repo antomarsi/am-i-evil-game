@@ -6,7 +6,7 @@
 [ext_resource path="res://src/MusicManager.gd" type="Script" id=4]
 [ext_resource path="res://prefabs/Interface.tscn" type="PackedScene" id=5]
 
-[node name="GameManager" type="Node"]
+[node name="GameManager" type="Node2D"]
 script = ExtResource( 4 )
 map_file = "res://assets/Maps/basic_metal_8.mboy"
 MUSIC = ExtResource( 2 )
@@ -17,10 +17,6 @@ MUSIC = ExtResource( 2 )
 anchor_mode = 0
 current = true
 
-[node name="Road" parent="." instance=ExtResource( 1 )]
-position = Vector2( 289.518, 700.697 )
-scale = Vector2( 3, 3 )
-
 [node name="MusicNode" type="Node" parent="."]
 script = ExtResource( 3 )
 
@@ -28,6 +24,15 @@ script = ExtResource( 3 )
 
 [node name="Delay" type="Timer" parent="MusicNode"]
 one_shot = true
-[connection signal="params_setted" from="." to="Road" method="_on_GameManager_params_setted"]
+
+[node name="RoadPivot" type="Node2D" parent="."]
+position = Vector2( 32, 216 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Road" parent="RoadPivot" instance=ExtResource( 1 )]
+position = Vector2( 80, -14 )
 [connection signal="params_setted" from="." to="MusicNode" method="_on_GameManager_params_setted"]
+[connection signal="params_setted" from="." to="RoadPivot/Road" method="_on_GameManager_params_setted"]
 [connection signal="timeout" from="MusicNode/Delay" to="MusicNode" method="_on_Delay_timeout"]

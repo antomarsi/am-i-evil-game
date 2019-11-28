@@ -8,7 +8,7 @@ export (String, FILE) var map_file = null
 
 export(float) var DELAY = 1
 onready var music_node = $MusicNode
-onready var road_node = $Road
+onready var road_node = $RoadPivot/Road
 
 export(AudioStreamOGGVorbis) var MUSIC
 
@@ -26,8 +26,8 @@ func _ready():
 	var music_path = map.audio.download_link
 	music = load(music_path)
 	set_params()
-	$MusicNode.set_physics_process(true)
-	$Road.set_physics_process(true)
+	music_node.set_physics_process(true)
+	road_node.set_physics_process(true)
 	
 func set_params():
 	tempo = int(map.tempo)

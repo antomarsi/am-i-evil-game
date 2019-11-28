@@ -1,5 +1,8 @@
 extends Node2D
 
+signal note_missed
+signal note_hitted
+
 signal bar_ended
 
 onready var bars_node = $BarsNode
@@ -14,6 +17,8 @@ var current_bar_index = 0
 var tracks_data
 var pos_mod = 32
 
+onready var roadBackground = $Background/RoadBackground
+
 onready var keys = [
 	$Keys/Key1,
 	$Keys/Key2,
@@ -27,6 +32,7 @@ func _ready():
 
 func _process(delta):
 	bars_node.position.y += speed*delta
+	roadBackground.get_material().set_shader_param("positionY", -bars_node.position.y/bar_length_in_m)
 
 func add_bars():
 	for i in range(4):
