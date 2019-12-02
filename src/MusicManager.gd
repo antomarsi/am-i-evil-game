@@ -1,16 +1,22 @@
 extends Node
 
-signal params_setted
-
 class_name GameMusicManager
 
-export (String, FILE) var map_file = null
+signal params_setted
 
+
+export (String, FILE) var map_file = null
+export(AudioStreamOGGVorbis) var MUSIC
 export(float) var DELAY = 1
+
+onready var score_meter : = $ScoreMeter as ScoreMeter
 onready var music_node = $MusicNode
 onready var road_node = $RoadPivot/Road
+onready var camera = $Camera2D
+onready var camera_shaker = $Actions/CameraAction
 
-export(AudioStreamOGGVorbis) var MUSIC
+var life_loss = 5
+var life_gain = 0.5
 
 var tempo
 var bar_length_in_m
@@ -28,6 +34,9 @@ func _ready():
 	set_params()
 	music_node.set_physics_process(true)
 	road_node.set_physics_process(true)
+	camera_shaker.initialize(self)
+	camera_shaker.set_duration(0.3)
+	camera_shaker.enabled = true
 	
 func set_params():
 	tempo = int(map.tempo)
@@ -44,3 +53,11 @@ func load_map():
 	var content = file.get_as_text()
 	file.close()
 	return JSON.parse(content).get_result()
+
+
+func _on_Road_note_hitted():
+	score_meter.add_value(life_gain)
+
+func _on_Road_note_missed(note):
+	score_meter.add_value(-life_loss)
+	camera_shaker.interact()

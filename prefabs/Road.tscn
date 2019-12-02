@@ -4,14 +4,14 @@
 [ext_resource path="res://src/Road.gd" type="Script" id=2]
 [ext_resource path="res://prefabs/Picker.tscn" type="PackedScene" id=4]
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 width = 28
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id=3]
 code = "shader_type canvas_item;
 
 uniform float positionY;
@@ -24,8 +24,8 @@ void fragment(){
 }
 "
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
 shader_param/positionY = null
 
 [node name="Road" type="Node2D"]
@@ -59,12 +59,12 @@ button = "key_5"
 rotation = -1.5708
 scale = Vector2( 1, 160 )
 z_index = 4
-texture = SubResource( 4 )
+texture = SubResource( 2 )
 
 [node name="Background" type="Node2D" parent="."]
 
 [node name="RoadBackground" type="TextureRect" parent="Background"]
-material = SubResource( 2 )
+material = SubResource( 4 )
 margin_left = -80.0
 margin_top = -202.0
 margin_right = 80.0

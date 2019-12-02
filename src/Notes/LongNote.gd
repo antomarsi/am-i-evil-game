@@ -1,6 +1,7 @@
 extends "res://src/Notes/BaseNote.gd"
 
 signal note_holding
+signal note_stopped_holding
 
 onready var beam = $Beam
 var current_length_in_m = 0
@@ -25,15 +26,16 @@ func _on_Picker_pressed(picker):
 
 func _on_Picker_stopped(picker):
 	if picker.note == self:
-		holding = false
 		picker.note == null
+		emit_signal("note_stopped_holding")
 
 func _on_Note_area_entered(area):
 	if area.is_in_group("picker"):
 		is_in_area = true
+		collected = true
 
 func _on_Note_area_exited(area):
-	if area.is_in_group("picker") and !holding:
+	if area.is_in_group("picker") and not holding:
 		emit_signal("note_missed", self)
 		is_in_area = false
 

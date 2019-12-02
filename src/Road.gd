@@ -10,12 +10,13 @@ onready var bars_node = $BarsNode
 var bar_scene = preload("res://prefabs/Bar.tscn")
 var bars = []
 var bar_length_in_m = 200
-var current_location = Vector2(0, -200)
+var current_location = Vector2(0, -bar_length_in_m)
 var speed = 80
 var note_scale
 var current_bar_index = 0
 var tracks_data
 var pos_mod = 32
+var game : GameMusicManager
 
 onready var roadBackground = $Background/RoadBackground
 
@@ -50,7 +51,7 @@ func add_bar():
 	bar.speed = speed
 	bar.pos_mod = pos_mod
 	bar.set_bar_size(pos_mod*2.5, bar_length_in_m)
-	bar.add_notes(bar_data, keys)
+	bar.add_notes(bar_data, keys, game)
 	bars.append(bar)
 	bars_node.add_child(bar)
 	current_location += Vector2(0, -bar_length_in_m)
@@ -71,11 +72,18 @@ func on_bar_removed(bar):
 	add_bar()
 	self.remove_bar(bar)
 
-
-func _on_GameManager_params_setted(game:GameMusicManager):
+func _on_GameManager_params_setted(_game:GameMusicManager):
+	game = _game
 	speed = game.speed
 	bar_length_in_m = game.bar_length_in_m
 	current_location = Vector2(0, -(bar_length_in_m + (game.start_pos_in_sec*speed)))
 	note_scale = game.note_scale
 	tracks_data = game.map.tracks
 	add_bars()
+
+func _on_note_missed():
+	emit_signal("note_missed")
+
+func _on_note_hitted():
+	print("note hitted")
+	emit_signal("note_hitted")

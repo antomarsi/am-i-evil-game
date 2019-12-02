@@ -13,4 +13,6 @@ default_color = Color( 0.0862745, 0.054902, 0.00784314, 0.329412 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 rect = Rect2( -126, -200, 252, 200 )
+
+[node name="NoteHolder" type="Node2D" parent="."]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

@@ -4,12 +4,10 @@
   },
   "002": {
     "name": "Artemis",
-    "expression": "neutral",
     "text": "Where’d you come up with that tune?"
   },
   "003": {
     "name": "Anon",
-    "expression": "neutral",
     "text": "Thought it up while I was taking a dump."
   },
   "004": {
@@ -115,6 +113,7 @@
     "text": "Someone call the guard, I’m being harassed!"
   },
   "031": {
+    "name": "Artemis",
     "text": "Pfft. Bitch. She’s lucky she was cool."
   },
   "032": {

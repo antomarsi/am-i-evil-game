@@ -4,7 +4,7 @@
 [ext_resource path="res://src/Notes/BaseNote.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 14, 6 )
+extents = Vector2( 12, 6 )
 
 [node name="ShortNote" type="Area2D" groups=[
 "note",

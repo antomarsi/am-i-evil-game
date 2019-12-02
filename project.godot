@@ -10,12 +10,66 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "BaseChapter",
+"language": "GDScript",
+"path": "res://src/novel/BaseChapter.gd"
+}, {
+"base": "Area2D",
+"class": "BaseNote",
+"language": "GDScript",
+"path": "res://src/Notes/BaseNote.gd"
+}, {
+"base": "NovelAction",
+"class": "DialogueAction",
+"language": "GDScript",
+"path": "res://src/novel/actions/DialogueAction.gd"
+}, {
+"base": "Control",
+"class": "DialogueBox",
+"language": "GDScript",
+"path": "res://src/interface/gui/DialogueBox.gd"
+}, {
+"base": "Node",
+"class": "DialoguePlayer",
+"language": "GDScript",
+"path": "res://src/dialogue/DialoguePlayer.gd"
+}, {
+"base": "Node",
 "class": "GameMusicManager",
 "language": "GDScript",
 "path": "res://src/MusicManager.gd"
+}, {
+"base": "Node",
+"class": "NovelAction",
+"language": "GDScript",
+"path": "res://src/novel/actions/NovelAction.gd"
+}, {
+"base": "Area2D",
+"class": "Picker",
+"language": "GDScript",
+"path": "res://src/Picker.gd"
+}, {
+"base": "Control",
+"class": "ScoreMeter",
+"language": "GDScript",
+"path": "res://src/interface/ScoreMeter/ScoreMeter.gd"
+}, {
+"base": "ColorRect",
+"class": "Transition",
+"language": "GDScript",
+"path": "res://src/interface/transition/Transition.gd"
 } ]
 _global_script_class_icons={
-"GameMusicManager": ""
+"BaseChapter": "",
+"BaseNote": "",
+"DialogueAction": "",
+"DialogueBox": "",
+"DialoguePlayer": "",
+"GameMusicManager": "",
+"NovelAction": "",
+"Picker": "",
+"ScoreMeter": "",
+"Transition": ""
 }
 
 [application]
@@ -24,6 +78,10 @@ config/name="Am I Evil"
 run/main_scene="res://scenes/Game.tscn"
 boot_splash/fullsize=false
 config/icon="res://icon.png"
+
+[autoload]
+
+DialogueDatabase="*res://src/dialogue/DialogueDatabase.gd"
 
 [display]
 
@@ -69,4 +127,5 @@ key_6={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.0313726, 0.0392157, 0.0705882, 1 )
 environment/default_environment="res://default_env.tres"

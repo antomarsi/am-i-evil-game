@@ -13,12 +13,14 @@ func set_bar_size(width, height):
 	$Line2D.set_point_position(1, Vector2(width, 0))
 	$VisibilityNotifier2D.rect = Rect2(Vector2(-width, -height), Vector2(width, height))
 
-func add_notes(bar_data, keys:Array):
+func add_notes(bar_data, keys:Array, game:GameMusicManager):
 	var line = 1
 	for line_data in bar_data:
 		var note_datas = line_data.notes
 		for note_data in note_datas:
 			var note = create_note(line, note_data, keys)
+			note.connect("note_collected", game, "_on_Road_note_hitted")
+			note.connect("note_missed", game, "_on_Road_note_missed")
 			add_child(note)
 		line += 1
 
@@ -30,6 +32,7 @@ func create_note(line:int, data, keys):
 		note.set_line(int(data.len), note_scale, speed)
 		note.connect("note_holding", key, "_play_particle", [false])
 		note.connect("note_collected", key, "_stop_particles")
+		note.connect("note_stopped_holding", key, "_stop_particles")
 	else:
 		note = short_note_scn.instance()
 		note.connect("note_collected", key, "_play_particle")

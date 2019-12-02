@@ -6,6 +6,7 @@ signal note_collected
 signal note_missed
 
 var is_in_area
+var collected = false
 
 func _ready():
 	add_listeners()
@@ -27,7 +28,10 @@ func set_pos(line:int, pos_y:int, pos_mod:float, length_scale:float):
 	$Sprite.frame = line-1
 
 func collect():
+	if collected:
+		return
 	emit_signal("note_collected")
+	collected = true
 	hide()
 
 func add_listeners():
@@ -47,6 +51,6 @@ func _on_Note_area_entered(area):
 		is_in_area = true
 
 func _on_Note_area_exited(area):
-	if area.is_in_group("picker"):
+	if area.is_in_group("picker") and not collected:
 		emit_signal("note_missed", self)
 		is_in_area = false

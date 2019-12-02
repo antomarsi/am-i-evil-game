@@ -1,17 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://prefabs/Road.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/music/Basic_Metal_8.ogg" type="AudioStream" id=2]
 [ext_resource path="res://src/Music.gd" type="Script" id=3]
 [ext_resource path="res://src/MusicManager.gd" type="Script" id=4]
-[ext_resource path="res://prefabs/Interface.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/interface/ScoreMeter/ScoreMeter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/novel/actions/CameraAction.tscn" type="PackedScene" id=6]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource( 4 )
 map_file = "res://assets/Maps/basic_metal_8.mboy"
 MUSIC = ExtResource( 2 )
 
-[node name="Interface" parent="." instance=ExtResource( 5 )]
+[node name="ScoreMeter" parent="." instance=ExtResource( 5 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -33,6 +34,13 @@ __meta__ = {
 
 [node name="Road" parent="RoadPivot" instance=ExtResource( 1 )]
 position = Vector2( 80, -14 )
-[connection signal="params_setted" from="." to="MusicNode" method="_on_GameManager_params_setted"]
+
+[node name="Actions" type="Node" parent="."]
+
+[node name="CameraAction" parent="Actions" instance=ExtResource( 6 )]
+amplitude = 3.0
 [connection signal="params_setted" from="." to="RoadPivot/Road" method="_on_GameManager_params_setted"]
+[connection signal="params_setted" from="." to="MusicNode" method="_on_GameManager_params_setted"]
 [connection signal="timeout" from="MusicNode/Delay" to="MusicNode" method="_on_Delay_timeout"]
+[connection signal="note_hitted" from="RoadPivot/Road" to="." method="_on_Road_note_hitted"]
+[connection signal="note_missed" from="RoadPivot/Road" to="." method="_on_Road_note_missed"]
