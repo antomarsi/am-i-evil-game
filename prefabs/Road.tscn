@@ -1,8 +1,10 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/wall/wall.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/walls/wall.png" type="Texture" id=1]
 [ext_resource path="res://src/Road.gd" type="Script" id=2]
 [ext_resource path="res://prefabs/Picker.tscn" type="PackedScene" id=4]
+
+
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0 )

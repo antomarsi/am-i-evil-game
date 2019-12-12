@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Artemis_neutral.png-2e3964f6dc95f2eee2b23988c408af68.stex"
+path="res://.import/Title_text5.png-41c5bbeeadf82850eb43466a0c8ddded.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/Artemis_neutral.png"
-dest_files=[ "res://.import/Artemis_neutral.png-2e3964f6dc95f2eee2b23988c408af68.stex" ]
+source_file="res://assets/interface/Title/Title_text5.png"
+dest_files=[ "res://.import/Title_text5.png-41c5bbeeadf82850eb43466a0c8ddded.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

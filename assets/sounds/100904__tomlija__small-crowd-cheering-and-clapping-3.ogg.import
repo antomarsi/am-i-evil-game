@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/100904__tomlija__small-crowd-cheering-and-clapping-3.ogg-da1d50b70d5d959bba23859e9296e86f.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/100904__tomlija__small-crowd-cheering-and-clapping-3.ogg"
+dest_files=[ "res://.import/100904__tomlija__small-crowd-cheering-and-clapping-3.ogg-da1d50b70d5d959bba23859e9296e86f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
